@@ -13,14 +13,42 @@ export class TuPageFormComponent implements OnInit {
   constructor(private formService:ControlService) { }
   ///formulario vacio
   toForm!:FormGroup;
-  ///aqui inyectamos el obj con nuestro formulario
+  ///aqui inyectamos el obj con nuestro formulario "TemplateForm"
   labels:ControlModel<String>[]=TemplateForm ;
+  /// mi DTO instance
+  inData!:miDTO;
   ngOnInit(): void {
     this.toForm=this.formService.toFromGroup(this.labels)
+
+  }
+  miSubmit(){
+    this.inData=this.toForm.getRawValue();
+    console.log('DTO:')
+    console.log(this.inData); //aqui estan los datos listos para usarse
   }
 
 }
-///
+// DTO este puede o no estar declarodo
+// pero el unico detalles es que los campos deben coincidir con los 'key' del
+// obj template. Suerte y que te sea util como lo fue para mi
+class miDTO {
+  inText!:String;
+  password!:String;
+  image!:String;
+  constructor(inText?:String,password?:String,image?:String){
+    this.inText=inText||'';
+    this.password=password||'';
+    this.image=image||'';
+  }
+}
+/// Ahora aca se diseña el formulario:
+//  *etiquitas
+//  *nombre de campos
+//  **restriciones
+//  **requerido o no
+//  etc
+// Con un poco de imaginacion el objeto puede venir de donde
+// nosotros queramos !!
 const TemplateForm =[
   new EntradaTexto({
     key:'inText',

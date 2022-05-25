@@ -1,11 +1,14 @@
 
-<div class="card" style="width: 50rem;">
+<div class="card" >
   <div class="card-body">
     <!-- tu Formulario se construye magicamente y obtienes tus valores llamando a getRawValue -->
     <!-- o al control especifico con el nombre que le diste en "key" -->
     <form [formGroup]="toForm" class="form-control">
       <div *ngFor="let label of labels">
         <sheld-control [etiquetas]="label" [form]="toForm"></sheld-control>
+      </div>
+      <div>
+        <button type="submit" (click)="miSubmit()">Enviar Datos</button>
       </div>
     </form>
     <div class="">
