@@ -13,6 +13,10 @@ El Css esta basado en bootstrap. Estoy tratando de realizarlo completamente con 
 adaptable con solo editar el control.component.css y el .ts.
 Esto me ayudo a no tener que realizar los molestos form y solo ocuparme con elaborar el DTO y sus restriciciones para una correcta validacion.
 
+#Fuente
+
+https://runebook.dev/es/docs/angular/guide/dynamic-form
+
 ## Construccion del objeto
 
 Por ejemplo
